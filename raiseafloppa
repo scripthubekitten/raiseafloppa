@@ -1,0 +1,81 @@
+local Library =
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/preztel/AzureLibrary/master/uilib.lua", true))()
+
+local AutoTab = Library:CreateTab("raise a floppa", "things", true)
+
+AutoTab:CreateToggle(
+   "Auto Click Floppa",
+   function(kd55fs)
+       _G.toggle5fs21 = kd55fs or false
+       game:GetService("RunService").Stepped:connect(
+           function()
+               if _G.toggle5fs21 then
+                   pcall(
+                       function()
+                           fireclickdetector(game:GetService("Workspace").Floppa.ClickDetector)
+                           fireclickdetector(game:GetService("Workspace")["Baby Floppa"].ClickDetector)
+                       end
+                   )
+               end
+           end
+       )
+   end
+)
+local Money = {"Money", "Gold Bar", "Money Bag"}
+AutoTab:CreateToggle(
+   "Auto Collect Money",
+   function(sse)
+       _G.s1 = sse or false
+       while _G.s1 and wait(.2) do
+           for i, v in pairs(game:GetService("Workspace").Money:GetChildren()) do
+               if v:IsA("TouchTransmitter") then
+                   firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 0)
+                   wait()
+                   firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 1) 
+               end
+           end
+       end
+   end
+)
+AutoTab:CreateToggle(
+   "Auto Collect Fertilizer",
+   function(ssse)
+       _G.s1s = ssse or false
+       while _G.s1s and wait(.1) do
+           for i, v in pairs(game:GetService("Workspace").Fertilizer:GetDescendants()) do
+               if v:IsA("TouchTransmitter") then
+                   firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 0) 
+                   wait()
+                   firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 1) 
+               end
+           end
+       end
+   end
+)
+AutoTab:CreateToggle(
+   "Auto Press E",
+   function(ssse1)
+       _G.s1s1 = ssse1 or false
+       while _G.s1s1 and wait(.1) do
+           local vim = game:service("VirtualInputManager")
+           vim:SendKeyEvent(true, "E", false, game)
+       end
+   end
+)
+AutoTab:CreateButton(
+   "Collect Almond Milk",
+   function()
+       for i, v in pairs(game:GetService("Workspace").Backrooms:GetChildren()) do
+           game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v["Almond Water Pickup"].CFrame
+       end
+       wait(1)
+       local vim = game:service("VirtualInputManager")
+       vim:SendKeyEvent(true, "E", false, game)
+   end
+)
+AutoTab:CreateButton(
+   "Made By: Bebo Mods",
+   function()
+   end
+)
+
